@@ -1,7 +1,7 @@
 #include "admin.h"
 void Admin::add_data()
 {
-	ofstream out("tmp.dat", ios_base::app);
+	ofstream out("sdm_dat.csv", ios_base::app);
 	if (out.is_open())
 	{
 //		system("clear");
@@ -47,7 +47,7 @@ void Admin::view_data()
 	/*
 	 *
 	 *
-//	in.open("tmp.dat",ios_base::in|ios_base::binary);
+//	in.open("sdm_dat.csv",ios_base::in|ios_base::binary);
 //	if(!in.is_open())
 //	{
 //		cout<<"Can't open data file."<<endl;
@@ -86,7 +86,7 @@ void Admin::view_data()
 	cout << "\t\t";
 	for(int i=0;i<tot+6;i++) cout<<"-";
 	cout<< "\n"<< endl;
-	in.open("tmp.dat", ios_base::in | ios_base::binary);
+	in.open("sdm_dat.csv", ios_base::in | ios_base::binary);
 	if (in.is_open())
 	{
 		while (getline(in, str))
