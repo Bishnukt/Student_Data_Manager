@@ -6,7 +6,6 @@
 #include<cstdio>
 #include<unistd.h>
 #include<vector>
-#include<set>
 #include<map>
 //#include<iomanip>
 #include"load.h"
@@ -22,8 +21,10 @@ struct Student{
 
 class Admin{
 	private:
+		map<string,vector<string>> file;
+		void load_dat();
 		int choice;
-		int sp[7] = {22, 24, 26,32, 27, 23, 0};
+		int sp[7] = {22, 24, 18,24, 15, 11, 0};
 		Student student;
 		ifstream in;
 		ofstream out;
