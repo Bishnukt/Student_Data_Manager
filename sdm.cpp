@@ -4,7 +4,7 @@
 int main(int argc,char *argv[])
 {
 	start_load();
-	Admin bishnu;
+	Admin admin; 
 	end_load();
 	//bishnu.add_data();
 	return 0;
