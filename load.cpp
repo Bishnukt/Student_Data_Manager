@@ -2,19 +2,34 @@
 
 void start_load()
 {
-	system("clear");
-	Admin::adds(10, 10);
-	cout << "|| W E L C O M E ||" << endl;
-	cout << "Press Enter to continue..." << endl;
+//	system("clear");
+	Admin::adds(5,5);
+	cout << "|| WELCOME TO STUDENT DATA MANAGER ||" << endl;
+	Admin::adds(5,1);
+	cout << "Press Enter to proceed..." << endl;
 	getchar();
 	system("clear");
 }
 
 void end_load()
 {
-	// system("clear");
-	cout << "\n\n\t\t||THANK YOU||" << endl;
-	sleep(2);
+	system("clear");
+	Admin::adds(5,3);
+	cout << "|| CLOSING STUDENT DATA MANAGER ||" << endl;
+	Admin::adds(5,1);
+	cout<< "ADIOS, AMIGO ";
+	fflush(stdout);
+	sleep(1);
+	cout<<":";
+	fflush(stdout);
+	sleep(1);
+	cout<<"-";
+	fflush(stdout);
+	sleep(1);
+	cout<<")"<<endl;
+	fflush(stdout);
+	sleep(3);
+	system("clear");
 }
 
 void print_label(int n)
@@ -22,6 +37,13 @@ void print_label(int n)
 	Admin::adds(s1,2);
 	switch (n)
 	{
+	case 0:
+		cout << "------------------"<<endl;
+		Admin::adds(s1);
+		cout << "|| ADMIN'S MENU ||"<< endl;
+		Admin::adds(s1);
+		cout<< "------------------\n"<<endl;
+		break;
 	case 1:
 		cout << "------------------------" << endl;
 		Admin::adds(s1);
