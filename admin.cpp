@@ -70,7 +70,13 @@ void Admin::load_dat()
 	in.open("sdm_dat.csv",ios::binary | ios::in);
 	if(!in.is_open())
 	{
-		cout<<"File couldn't be opened"<<endl;
+		out.open("sdm_dat.csv");
+		if(out.is_open())
+		{
+			out.close();
+			return;
+		}
+		cout<<"Some problem occured while opening the DataFile."<<endl;
 		exit(1);
 	}
 	string str;
@@ -96,7 +102,7 @@ void Admin::view_data()
 		cout<<"NO RECORDS TO SHOW, DATAFILE IS EMPTY.\n"<<endl;
 		return;
 	}
-//	string str, s = "            ";
+	//	string str, s = "            ";
 	int tot=0;
 	for(auto it:sp) tot+=it;
 	adds(0, 5);
