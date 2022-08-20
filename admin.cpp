@@ -16,6 +16,7 @@ void Admin::add_data()
 		getline(cin,student.id);
 		if(file.find(student.id)!=file.end())
 		{
+			adds(5,1);
 			cout<<"ID "<<student.id<<" ALREADY EXISTS."<<endl;
 			return;
 		}
@@ -89,15 +90,17 @@ void Admin::load_dat()
 
 void Admin::view_data()
 {
-	string str, s = "            ";
-	// cout<<"Id\8Name\t\tCourse\t\tGender\t\tAge\t\tPh_No.\n"<<endl;
+	if(file.empty())
+	{
+		adds(5,5);
+		cout<<"NO RECORDS TO SHOW, DATAFILE IS EMPTY.\n"<<endl;
+		return;
+	}
+//	string str, s = "            ";
 	int tot=0;
 	for(auto it:sp) tot+=it;
 	adds(0, 5);
-	//	for(int i=0;i<tot+50;i++) cout<<"-";
-	//	cout<<endl;
 	cout << "ID"; adds(5); cout<< "NAME"; adds(5); cout<< "COURSE"; adds(3); cout<< "DEPARTMENT"; adds(3); cout<< "GENDER";adds(2); cout<< "  AGE"; adds(2); cout<< " PH_No."<<endl;
-	//	cout << "\t\t";
 	for(int i=0;i<tot+6;i++) cout<<"-";
 	cout<< "\n"<< endl;
 	for(auto it:file)
@@ -141,12 +144,8 @@ void Admin::menu()
 	do
 	{
 		system("clear");
-		adds(10, 5);
-		cout << "||ADMIN'S MENU||\n\n"
-			<< endl;
-
-		// cout<<ss<<"1. Add Student Record\n"<<ss<<"2. View Records\n"<<ss<<"3.Delete Student Record\n"<<ss<<"4. Update Student Record\n"<<endl;
-		adds(s2);
+		print_label(0);
+		adds(s2,2);
 		cout << "1. ADD STUDENT RECORD\n\n";
 		adds(s2);
 		cout << "2. VIEW RECORDS\n\n";
@@ -155,7 +154,7 @@ void Admin::menu()
 		adds(s2);
 		cout << "4. UPDATE RECORD\n\n";
 		adds(8);
-		cout << "5. Exit\n\n"
+		cout << "5. EXIT\n\n"
 			<< endl;
 		adds(s2);
 		cout << "ENTER YOUR CHOICE: ";
@@ -169,7 +168,7 @@ void Admin::menu()
 					system("clear");
 					print_label(1);
 					add_data();
-					cout << "ADD MORE RECORDS ? (Y/N): ";
+					adds(5,1);cout << "ADD MORE RECORDS?(Y/N): ";
 					cin >> ch;
 				} while (ch != 'n' && ch != 'N');
 				load_dat();
@@ -180,22 +179,30 @@ void Admin::menu()
 				view_data();
 				break;
 			case 3:
+				system("clear");
+				print_label(3);
+				adds(5,1);
 				cout << "SORRY, THIS FEATURE IS NOT AVAILABLE NOW.\n"
 					<< endl;
 				break;
 			case 4:
+				system("clear");
+				print_label(4);
+				adds(5,1);
 				cout << "SORRY, THIS FEATURE IS NOT AVAILABLE NOW.\n"
 					<< endl;
 				break;
 			case 5:
 				break;
 			default:
-				cout << "PLEASE ENTER A VALID CHOICE: ";
+				adds(5,1);
+				cout << "INVALID CHOICE. "<<endl;
 		}
 		if (choice == 5)
 			break;
 		//		cin.ignore();
-		cout << "\n\tRETURN TO MAIN MENU?(Y/N) : ";
+		adds(5,1);
+		cout << "RETURN TO MAIN MENU?(Y/N) : ";
 		cin >> ch;
 	} while (ch != 'n' && ch != 'N');
 }
@@ -208,7 +215,8 @@ Admin::Admin()
 
 // Admin::~Admin()
 //{
-// end_load();
+//	adds(5,1);
+//	cout<<"ADMIN LOGGING OUT. "<<endl;
 //}
 
 void Admin::adds(int t, int n)
