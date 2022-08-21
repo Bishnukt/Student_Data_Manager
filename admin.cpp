@@ -38,12 +38,14 @@ void Admin::add_data()
 		getline(cin, student.dep);
 		temp.push_back(student.dep);
 		adds(5,1);
-
+	
+		do{
 		cout << "GENDER[M/F/Other]: ";
 		cin >> student.gender;
-		temp.push_back(student.gender);
 		adds(5,1);
-
+		}while(student.gender!="M" && student.gender!="F" && student.gender!="Other" && student.gender!="m" && student.gender!="f" && student.gender!="other");
+		temp.push_back(student.gender);
+		
 		cout << "AGE: ";
 		cin >> student.age;
 		cin.ignore();
@@ -242,7 +244,7 @@ void Admin::menu()
 				cout << "ADD MORE RECORDS?(Y/N): ";
 				cin >> ch;
 			} while (ch != 'n' && ch != 'N');
-			load_dat();
+//			load_dat();
 			break;
 		case 2:
 			system("clear");
@@ -258,8 +260,7 @@ void Admin::menu()
 			system("clear");
 			print_label(4);
 			adds(5, 1);
-			cout << "SORRY, THIS FEATURE IS NOT AVAILABLE NOW.\n"
-				 << endl;
+			cout << "SORRY, THIS FEATURE IS NOT AVAILABLE NOW.\n" << endl;
 			break;
 		case 5:
 			break;
