@@ -22,17 +22,17 @@ struct Student{
 class Admin{
 	private:
 		map<string,vector<string>> file;
-		void load_dat();
 		int choice;
 		int sp[7] = {22, 24, 18,24, 15, 11, 0};
-		Student student;
 		ifstream in;
 		ofstream out;
 		vector<string> split(string str);
 		void menu();
+		void load_dat();
+		void write_dat();
 		void print(vector<string> &line);
 		void add_data();
-		void delete_date();
+		void delete_data();
 		void update_data();
 	public:
 		Admin();
