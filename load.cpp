@@ -14,7 +14,7 @@ void start_load()
 void end_load()
 {
 	system("clear");
-	Admin::adds(5,3);
+	Admin::adds(5,5);
 	cout << "|| CLOSING STUDENT DATA MANAGER ||" << endl;
 	Admin::adds(5,1);
 	cout<< "ADIOS, AMIGO ";
@@ -28,7 +28,7 @@ void end_load()
 	sleep(1);
 	cout<<")"<<endl;
 	fflush(stdout);
-	sleep(3);
+	sleep(1);
 	system("clear");
 }
 
