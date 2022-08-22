@@ -6,6 +6,11 @@ Store records like student_id, name, course, department, phone no. etc.
 It writes records into a .csv file that can be opened with any spreadsheet software like google sheets,microsoft excel,libreoffice calc.
 Until now options to add,view and delete records are available.
 
+![Admin's Menu](screenshots/admin_menu.png)
+![Add Record](screenshots/add_record.png)
+![View Records](screenshots/view_record.png)
+![Delete Record](screenshots/delete_record.png)
+
 ### Features to be implemented further and soon are:
 
 1.  Updating any student's record.
@@ -15,7 +20,7 @@ Until now options to add,view and delete records are available.
 
 ### To get and run this program, run these commands in your terminal:
 
-1.  git clone git@github.com:Bishnukt/Student_Data_Manager
+1.  git clone git@github.com:Bishnukt/Student_Data_Manager.git
 1.  cd Student_Data_Manager
 1.  g++ -o sdm sdm.cpp admin.cpp load.cpp
 1.  ./sdm
