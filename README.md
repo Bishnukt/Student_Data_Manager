@@ -6,10 +6,14 @@ Store records like student_id, name, course, department, phone no. etc.
 It writes records into a .csv file that can be opened with any spreadsheet software like google sheets,microsoft excel,libreoffice calc.
 Until now options to add,view and delete records are available.
 
-![Admin's Menu](screenshots/admin_menu.png)
-![Add Record](screenshots/add_record.png)
-![View Records](screenshots/view_record.png)
-![Delete Record](screenshots/delete_record.png)
+>**Note**
+> As I have used the linux/unix specific library *unistd.h* to use functions like `sleep()` and `system("clear")`, the cpp files will  only compile on linux/unix based operating systems. Soon I'll be adding detailed steps on **changes to be made to compile these files on other operating system like Windows.**
+
+### Few screenshots of the program running in terminal-
+![Admin's Menu](screenshots/admin_menu.png "Admin's Menu")
+![Add Record](screenshots/add_record.png "Add Record")
+![View Records](screenshots/view_record.png "View Records")
+![Delete Record](screenshots/delete_record.png "Delete Record")
 
 ### Features to be implemented further and soon are:
 
