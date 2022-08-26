@@ -22,7 +22,7 @@ struct Student{
 class Admin{
 	private:
 		map<string,vector<string>> file;
-		int choice;
+		int choice,tot;
 		int sp[7] = {22, 24, 18,24, 15, 11, 0};
 		ifstream in;
 		ofstream out;
