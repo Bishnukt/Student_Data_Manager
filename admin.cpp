@@ -4,9 +4,8 @@ void Admin::add_data()
 	ofstream out("sdm_dat.csv", ios_base::app);
 	if (out.is_open())
 	{
-		Student student;
+        Student student;
 		vector<string> temp;
-//		system("clear");
 		cin.ignore();
 		adds(5,5);
 		cout << "ENTER STUDENT'S DETAILS-" << endl;
@@ -38,14 +37,14 @@ void Admin::add_data()
 		getline(cin, student.dep);
 		temp.push_back(student.dep);
 		adds(5,1);
-	
+
 		do{
-		cout << "GENDER[M/F/Other]: ";
-		cin >> student.gender;
-		adds(5,1);
+			cout << "GENDER[M/F/Other]: ";
+			cin >> student.gender;
+			adds(5,1);
 		}while(student.gender!="M" && student.gender!="F" && student.gender!="Other" && student.gender!="m" && student.gender!="f" && student.gender!="other");
 		temp.push_back(student.gender);
-		
+
 		cout << "AGE: ";
 		cin >> student.age;
 		cin.ignore();
@@ -79,7 +78,7 @@ void Admin::delete_data()
 	{
 		adds(5, 1);
 		cout << "NO RECORD FOR STUDENT ID \"" << str << "\" EXISTS.\n"
-			 << endl;
+			<< endl;
 		return;
 	}
 	if (file.erase(str))
@@ -87,12 +86,113 @@ void Admin::delete_data()
 		write_dat();
 		adds(5, 1);
 		cout << "STUDENT ID \"" << str << "\" RECORDS DELETED SUCCESSFULLY.\n"
-			 << endl;
+			<< endl;
 		return;
 	}
 	adds(5, 1);
 	cout << "FACING SOME UNKNOWN PROBLEM, PLEASE TRY AGAIN.\n"
-		 << endl;
+		<< endl;
+}
+
+void Admin::update_data()
+{
+	string id,val;
+	vector<string> temp;
+	char ch;
+	adds(5,5);
+	cin.ignore();
+	cout<<"ENTER THE STUDENT ID TO UPDATE: ";
+	getline(cin,id);
+	if(file.find(id)==file.end())
+	{
+		adds(5,1);
+		cout<<"NO RECORD FOR STUDENT ID \""<<id<<"\" EXISTS.\n"<<endl;
+		return;
+	}
+	temp=file.at(id);
+	adds(5,2);
+	do
+	{
+	cout<<"UPDATE =>";
+	adds(1);cout<<"1. NAME";
+	adds(1);cout<<"2. COURSE";
+	adds(1);cout<<"3. DEPARTMENT";
+	adds(1);cout<<"4. GENDER";
+	adds(1);cout<<"5. AGE";
+	adds(1);cout<<"6. PHONE No.";
+	adds(5,2);
+	cout<<"RETURN =>";
+	adds(1);cout << "7. UPDATE & RETURN";adds(1);cout << "8. ABORT ALL CHANGES & RETURN"<<endl;
+	adds(5,2);
+	cout<<"ENTER YOUR CHOICE: ";
+	cin>>choice;
+	adds(5,2);
+	if(choice>=1 && choice<=6)
+		cout<<"ENTER NEW VALUE FOR- "<<endl;
+	adds(5,0);
+	switch(choice)
+	{
+		case 1:
+			cout<<"NAME: ";
+			cin.ignore();
+			getline(cin,val);
+			temp[1]=val;
+			break;
+		case 2:
+			cout<<"COURSE: ";
+			getline(cin,val);
+			temp[2]=val;
+			break;
+		
+		case 3:
+			cout<<"DEPARTMENT: ";
+			getline(cin,val);
+			temp[3]=val;
+			break;
+		
+		case 4:
+			do{
+				cout<<"GENDER(M/F/Other): ";
+				getline(cin,val);
+			}while(val!="M" && val!="m" && val!="F" && val!="f" && val!="Other" && val!="other");
+			temp[4]=val;
+			break;
+
+		case 5:
+			cout<<"AGE: ";
+			cin>>val;
+			temp[5]=val;
+			break;
+		
+		case 6:
+			cin.ignore();
+			cout<<"PHONE No.: ";
+			cin>>val;
+			temp[6]=val;
+			break;
+
+		case 7:
+			break;
+
+		case 8:
+			adds(5,1);
+			cout<<"ALL CHANGES ABORTED. RECORDS OF \""<<id<<"\" NOT EFFECTED."<<endl;
+			return;
+		
+		default:
+			cout<<"INVALID CHOICE FROM GIVEN OPTIONS."<<endl;
+	}
+		if(choice==7)
+			break;
+		val.clear();
+		adds(5,1);
+		cout<<"UPDATE MORE VALUES?(Y/N): ";
+		cin>>ch;
+	}while(ch=='Y' && ch=='y');
+	file.at(id)=temp;
+	write_dat();
+	adds(5,1);
+	cout<<"\""<<id<<"\" RECORDS UPDATED SUCCESSFULLY."<<endl;
 }
 
 void Admin::load_dat()
@@ -106,7 +206,7 @@ void Admin::load_dat()
 			out.close();
 			return;
 		}
-		cout << "Some problem occured while opening the DataFile." << endl;
+		cout << "SOME PROBLEM OCCURED WHILE OPENING THE DATAFILE." << endl;
 		exit(1);
 	}
 	string str;
@@ -151,12 +251,10 @@ void Admin::view_data()
 	{
 		adds(5, 5);
 		cout << "NO RECORDS TO SHOW, DATAFILE IS EMPTY.\n"
-			 << endl;
+			<< endl;
 		return;
 	}
 	//	string str, s = "            ";
-	int tot = 0;
-	for (auto it : sp) tot += it;
 	adds(0, 5);
 	cout << "ID";
 	adds(5);
@@ -189,7 +287,7 @@ void Admin::print(vector<string> &line)
 			cout << " ";
 	}
 	cout << "\n"
-		 << endl;
+		<< endl;
 }
 
 vector<string> Admin::split(string str)
@@ -227,46 +325,46 @@ void Admin::menu()
 		cout << "4. UPDATE RECORD\n\n";
 		adds(8);
 		cout << "5. EXIT\n\n"
-			 << endl;
+			<< endl;
 		adds(s2);
 		cout << "ENTER YOUR CHOICE: ";
 		cin >> choice;
 
 		switch (choice)
 		{
-		case 1:
-			do
-			{
+			case 1:
+				do
+				{
+					system("clear");
+					print_label(1);
+					add_data();
+					adds(5, 2);
+					cout << "ADD MORE RECORDS?(Y/N): ";
+					cin >> ch;
+				} while (ch != 'n' && ch != 'N');
+				//			load_dat();
+				break;
+			case 2:
 				system("clear");
-				print_label(1);
-				add_data();
-				adds(5, 2);
-				cout << "ADD MORE RECORDS?(Y/N): ";
-				cin >> ch;
-			} while (ch != 'n' && ch != 'N');
-//			load_dat();
-			break;
-		case 2:
-			system("clear");
-			print_label(2);
-			view_data();
-			break;
-		case 3:
-			system("clear");
-			print_label(3);
-			delete_data();
-			break;
-		case 4:
-			system("clear");
-			print_label(4);
-			adds(5, 1);
-			cout << "SORRY, THIS FEATURE IS NOT AVAILABLE NOW.\n" << endl;
-			break;
-		case 5:
-			break;
-		default:
-			adds(5, 1);
-			cout << "INVALID CHOICE. " << endl;
+				print_label(2);
+				view_data();
+				break;
+			case 3:
+				system("clear");
+				print_label(3);
+				delete_data();
+				break;
+			case 4:
+				system("clear");
+				print_label(4);
+				adds(5, 1);
+				update_data();
+				break;
+			case 5:
+				break;
+			default:
+				adds(5, 1);
+				cout << "INVALID CHOICE. " << endl;
 		}
 		if(choice == 5)
 			break;
@@ -280,6 +378,8 @@ void Admin::menu()
 Admin::Admin()
 {
 	load_dat();
+	tot = 0;
+	for (auto it : sp) tot += it;
 	menu();
 }
 
