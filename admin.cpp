@@ -1,4 +1,5 @@
 #include "admin.h"
+
 void Admin::add_data()
 {
 	ofstream out("sdm_dat.csv", ios_base::app);
@@ -56,7 +57,6 @@ void Admin::add_data()
 		temp.push_back(student.ph_no);
 
 		out << student.id << "," << student.name << "," << student.course << "," << student.dep << "," << student.gender << "," << student.age << "," << student.ph_no << endl;
-		// out.write((char *)this, sizeof(this));
 		out.close();
 		file.insert({temp[0], temp});
 	}
@@ -110,85 +110,90 @@ void Admin::update_data()
 		return;
 	}
 	temp=file.at(id);
-	adds(5,2);
-	do
-	{
-	cout<<"UPDATE =>";
-	adds(1);cout<<"1. NAME";
-	adds(1);cout<<"2. COURSE";
-	adds(1);cout<<"3. DEPARTMENT";
-	adds(1);cout<<"4. GENDER";
-	adds(1);cout<<"5. AGE";
-	adds(1);cout<<"6. PHONE No.";
-	adds(5,2);
-	cout<<"RETURN =>";
-	adds(1);cout << "7. UPDATE & RETURN";adds(1);cout << "8. ABORT ALL CHANGES & RETURN"<<endl;
-	adds(5,2);
-	cout<<"ENTER YOUR CHOICE: ";
-	cin>>choice;
-	adds(5,2);
-	if(choice>=1 && choice<=6)
-		cout<<"ENTER NEW VALUE FOR- "<<endl;
-	adds(5,0);
-	switch(choice)
-	{
-		case 1:
-			cout<<"NAME: ";
-			cin.ignore();
-			getline(cin,val);
-			temp[1]=val;
-			break;
-		case 2:
-			cout<<"COURSE: ";
-			getline(cin,val);
-			temp[2]=val;
-			break;
-		
-		case 3:
-			cout<<"DEPARTMENT: ";
-			getline(cin,val);
-			temp[3]=val;
-			break;
-		
-		case 4:
-			do{
-				cout<<"GENDER(M/F/Other): ";
-				getline(cin,val);
-			}while(val!="M" && val!="m" && val!="F" && val!="f" && val!="Other" && val!="other");
-			temp[4]=val;
-			break;
-
-		case 5:
-			cout<<"AGE: ";
-			cin>>val;
-			temp[5]=val;
-			break;
-		
-		case 6:
-			cin.ignore();
-			cout<<"PHONE No.: ";
-			cin>>val;
-			temp[6]=val;
-			break;
-
-		case 7:
-			break;
-
-		case 8:
-			adds(5,1);
-			cout<<"ALL CHANGES ABORTED. RECORDS OF \""<<id<<"\" NOT EFFECTED."<<endl;
-			return;
-		
-		default:
-			cout<<"INVALID CHOICE FROM GIVEN OPTIONS."<<endl;
-	}
-		if(choice==7)
-			break;
-		val.clear();
+	do{
+		system("clear");
+		print_label(4);
+		adds(5,3);
+		cout<<"|| UPDATING STUDENT ID \""<<id<<"\" RECORDS. ||"<<endl;
+		adds(5,4);
+		cout<<"UPDATE =>";
+		adds(1);cout<<"1. NAME";
+		adds(1);cout<<"2. COURSE";
+		adds(1);cout<<"3. DEPARTMENT";
+		adds(1);cout<<"4. GENDER";
+		adds(1);cout<<"5. AGE";
+		adds(1);cout<<"6. PHONE No.";
+		adds(5,2);
+		cout<<"RETURN =>";
+		adds(1);cout << "7. UPDATE & RETURN";adds(1);cout << "8. ABORT ALL CHANGES & RETURN"<<endl;
+		adds(5,2);
+		cout<<"ENTER YOUR CHOICE: ";
+		cin>>choice;
+		cin.ignore();
+		adds(5,2);
+		if(choice>=1 && choice<=6)
+			cout<<"ENTER NEW VALUE FOR- "<<endl;
 		adds(5,1);
-		cout<<"UPDATE MORE VALUES?(Y/N): ";
-		cin>>ch;
-	}while(ch=='Y' && ch=='y');
+		switch(choice)
+		{
+			case 1:
+				cout<<"NAME: ";
+				getline(cin,val);
+				temp[1]=val;
+				break;
+			case 2:
+				cout<<"COURSE: ";
+				getline(cin,val);
+				temp[2]=val;
+				break;
+			
+			case 3:
+				cout<<"DEPARTMENT: ";
+				getline(cin,val);
+				temp[3]=val;
+				break;
+			
+			case 4:
+				do{
+					cout<<"GENDER(M/F/Other): ";
+					getline(cin,val);
+				}while(val!="M" && val!="m" && val!="F" && val!="f" && val!="Other" && val!="other");
+				temp[4]=val;
+				break;
+
+			case 5:
+				cout<<"AGE: ";
+				cin>>val;
+				cin.ignore();
+				temp[5]=val;
+				break;
+			
+			case 6:
+				cout<<"PHONE No.: ";
+				cin>>val;
+				cin.ignore();
+				temp[6]=val;
+				break;
+
+			case 7:
+				break;
+
+			case 8:
+				adds(5,1);
+				cout<<"ALL CHANGES ABORTED. RECORDS OF \""<<id<<"\" NOT EFFECTED."<<endl;
+				return;
+			
+			default:
+				cout<<"INVALID CHOICE FROM GIVEN OPTIONS."<<endl;
+		}
+			if(choice==7)
+				break;
+			val.clear();
+			adds(5,1);
+			cout<<"UPDATE MORE VALUES?(Y/N): ";
+			cin>>ch;
+			cin.ignore();
+	}while(ch=='Y' || ch=='y');
 	file.at(id)=temp;
 	write_dat();
 	adds(5,1);

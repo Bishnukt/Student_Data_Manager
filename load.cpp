@@ -77,3 +77,8 @@ void print_label(int n)
 	}
 //	Admin::adds(s2);
 }
+
+// void load_view()
+// {
+
+// }
