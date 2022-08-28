@@ -113,15 +113,39 @@ void Admin::update_data()
 	do{
 		system("clear");
 		print_label(4);
-		adds(5,3);
+		adds(8,3);
 		cout<<"|| UPDATING STUDENT ID \""<<id<<"\" RECORDS. ||"<<endl;
+		adds(0, 5);
+		cout << "ID";
+		adds(5);
+		cout << "NAME";
+		adds(5);
+		cout << "COURSE";
+		adds(3);
+		cout << "DEPARTMENT";
+		adds(3);
+		cout << "GENDER";
+		adds(2);
+		cout << "  AGE";
+		adds(2);
+		cout << " PH_No." << endl;
+		for (int i = 0; i < tot + 12; i++)
+			cout << "-";
+		cout << "\n"
+			 << endl;
+			print(temp);
+		for (int i = 0; i < tot + 12; i++)
+			cout << "-";
+		cout << "\n"
+			 << endl;
+
 		adds(5,4);
 		cout<<"UPDATE =>";
 		adds(1);cout<<"1. NAME";
 		adds(1);cout<<"2. COURSE";
 		adds(1);cout<<"3. DEPARTMENT";
 		adds(1);cout<<"4. GENDER";
-		adds(1);cout<<"5. AGE";
+			adds(1);cout<<"5. AGE";
 		adds(1);cout<<"6. PHONE No.";
 		adds(5,2);
 		cout<<"RETURN =>";
