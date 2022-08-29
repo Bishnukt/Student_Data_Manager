@@ -155,29 +155,29 @@ void Admin::update_data()
 		cin>>choice;
 		cin.ignore();
 		adds(5,2);
-		if(choice>=1 && choice<=6)
+		if(choice>='1' && choice<='6')
 			cout<<"ENTER NEW VALUE FOR- "<<endl;
 		adds(5,1);
 		switch(choice)
 		{
-			case 1:
+			case '1':
 				cout<<"NAME: ";
 				getline(cin,val);
 				temp[1]=val;
 				break;
-			case 2:
+			case '2':
 				cout<<"COURSE: ";
 				getline(cin,val);
 				temp[2]=val;
 				break;
 			
-			case 3:
+			case '3':
 				cout<<"DEPARTMENT: ";
 				getline(cin,val);
 				temp[3]=val;
 				break;
 			
-			case 4:
+			case '4':
 				do{
 					cout<<"GENDER(M/F/Other): ";
 					getline(cin,val);
@@ -185,24 +185,24 @@ void Admin::update_data()
 				temp[4]=val;
 				break;
 
-			case 5:
+			case '5':
 				cout<<"AGE: ";
 				cin>>val;
 				cin.ignore();
 				temp[5]=val;
 				break;
 			
-			case 6:
+			case '6':
 				cout<<"PHONE No.: ";
 				cin>>val;
 				cin.ignore();
 				temp[6]=val;
 				break;
 
-			case 7:
+			case '7':
 				break;
 
-			case 8:
+			case '8':
 				adds(5,1);
 				cout<<"ALL CHANGES ABORTED. RECORDS OF \""<<id<<"\" NOT EFFECTED."<<endl;
 				return;
@@ -210,7 +210,7 @@ void Admin::update_data()
 			default:
 				cout<<"INVALID CHOICE FROM GIVEN OPTIONS."<<endl;
 		}
-			if(choice==7)
+			if(choice=='7')
 				break;
 			val.clear();
 			adds(5,1);
@@ -361,7 +361,7 @@ void Admin::menu()
 
 		switch (choice)
 		{
-			case 1:
+			case '1':
 				do
 				{
 					system("clear");
@@ -373,29 +373,29 @@ void Admin::menu()
 				} while (ch != 'n' && ch != 'N');
 				//			load_dat();
 				break;
-			case 2:
+			case '2':
 				system("clear");
 				print_label(2);
 				view_data();
 				break;
-			case 3:
+			case '3':
 				system("clear");
 				print_label(3);
 				delete_data();
 				break;
-			case 4:
+			case '4':
 				system("clear");
 				print_label(4);
 				adds(5, 1);
 				update_data();
 				break;
-			case 5:
+			case '5':
 				break;
 			default:
 				adds(5, 1);
 				cout << "INVALID CHOICE. " << endl;
 		}
-		if(choice == 5)
+		if(choice == '5')
 			break;
 		//		cin.ignore();
 		adds(5, 1);
