@@ -115,7 +115,7 @@ void Admin::update_data()
 		print_label(4);
 		adds(8,3);
 		cout<<"|| UPDATING STUDENT ID \""<<id<<"\" RECORDS. ||"<<endl;
-		adds(0, 5);
+		adds(0, 3);
 		cout << "ID";
 		adds(5);
 		cout << "NAME";
@@ -139,7 +139,7 @@ void Admin::update_data()
 		cout << "\n"
 			 << endl;
 
-		adds(5,4);
+		adds(5,3);
 		cout<<"UPDATE =>";
 		adds(1);cout<<"1. NAME";
 		adds(1);cout<<"2. COURSE";
@@ -352,7 +352,7 @@ void Admin::menu()
 		cout << "3. DELETE STUDENT RECORD\n\n";
 		adds(s2);
 		cout << "4. UPDATE RECORD\n\n";
-		adds(8);
+		adds(s2);
 		cout << "5. EXIT\n\n"
 			<< endl;
 		adds(s2);
@@ -392,7 +392,7 @@ void Admin::menu()
 			case '5':
 				break;
 			default:
-				adds(5, 1);
+				adds(s2, 1);
 				cout << "INVALID CHOICE. " << endl;
 		}
 		if(choice == '5')
