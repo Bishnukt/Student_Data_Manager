@@ -78,7 +78,23 @@ void print_label(int n)
 //	Admin::adds(s2);
 }
 
-// void load_view()
-// {
-
-// }
+void load_view(int tot)
+{
+	cout << "ID";
+	Admin::adds(5);
+	cout << "NAME";
+	Admin::adds(5);
+	cout << "COURSE";
+	Admin::adds(3);
+	cout << "DEPARTMENT";
+	Admin::adds(3);
+	cout << "GENDER";
+	Admin::adds(2);
+	cout << "  AGE";
+	Admin::adds(2);
+	cout << " PH_No." << endl;
+	for (int i = 0; i < tot + 12; i++)
+		cout << "-";
+	cout << "\n"
+		 << endl;
+}
