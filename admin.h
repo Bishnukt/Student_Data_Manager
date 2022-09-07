@@ -35,6 +35,7 @@ class Admin{
 		void add_data();
 		void delete_data();
 		void update_data();
+		void search();
 	public:
 		Admin();
 		//~Admin();
