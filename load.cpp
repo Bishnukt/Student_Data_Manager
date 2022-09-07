@@ -72,6 +72,13 @@ void print_label(int n)
 		Admin::adds(s1);
 		cout << "---------------------------" << endl;
 		break;
+	case 5:
+		cout<<"------------------"<<endl;
+		Admin::adds(s1);
+		cout<<"|| SEARCH BY ID ||"<<endl;
+		Admin::adds(s1);
+		cout<<"------------------"<<endl;
+		break;
 	default:
 		return;
 	}

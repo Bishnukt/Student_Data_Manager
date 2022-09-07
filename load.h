@@ -7,5 +7,5 @@ using namespace std;
 void start_load(void);
 void end_load(void);
 void print_label(int n);
-void load_view();
+void load_view(int);
 #endif
