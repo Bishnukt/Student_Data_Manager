@@ -306,6 +306,23 @@ void Admin::view_data()
 	cout << "\n"<< endl;
 }
 
+void Admin::search()
+{
+	string id;
+	adds(5,5);
+	cin.ignore();
+	cout<<"ENTER THE STUDENT ID TO SEARCH: ";
+	getline(cin,id);
+	if(file.find(id)==file.end())
+	{
+		adds(5,1);
+		cout<<"STUDENT ID \""<<id<<"\" NOT FOUND."<<endl;
+		return;
+	}
+	load_view(tot);
+	print(file.at(id));
+}
+
 void Admin::print(vector<string> &line)
 {
 	for (int i = 0; i < line.size(); i++)
@@ -395,8 +412,8 @@ void Admin::menu()
 					system("clear");
 					print_label(5);
 					adds(5,1);
-					//Ssearch();
-					cout<<"SEARCH MORE RECORDS?(Y/N): ";
+					search();
+					cout<<"SEARCH AGAIN?(Y/N): ";
 					cin>>ch;
 				}while(ch != 'n' && ch != 'N');
 				break;
