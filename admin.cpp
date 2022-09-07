@@ -319,8 +319,12 @@ void Admin::search()
 		cout<<"STUDENT ID \""<<id<<"\" NOT FOUND."<<endl;
 		return;
 	}
+	adds(0,4);
 	load_view(tot);
 	print(file.at(id));
+	for (int i = 0; i < tot + 12; i++)
+		cout << "-";
+	cout << "\n"<< endl;
 }
 
 void Admin::print(vector<string> &line)
@@ -413,6 +417,7 @@ void Admin::menu()
 					print_label(5);
 					adds(5,1);
 					search();
+					adds(5,2);
 					cout<<"SEARCH AGAIN?(Y/N): ";
 					cin>>ch;
 				}while(ch != 'n' && ch != 'N');
