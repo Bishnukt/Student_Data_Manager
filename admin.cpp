@@ -353,8 +353,9 @@ void Admin::menu()
 		adds(s2);
 		cout << "4. UPDATE RECORD\n\n";
 		adds(s2);
-		cout << "5. EXIT\n\n"
-			<< endl;
+		cout<<"5. SEARCH\n\n";
+		adds(s2);
+		cout << "6. EXIT\n\n"<< endl;
 		adds(s2);
 		cout << "ENTER YOUR CHOICE: ";
 		cin >> choice;
@@ -390,12 +391,22 @@ void Admin::menu()
 				update_data();
 				break;
 			case '5':
+				do{
+					system("clear");
+					print_label(5);
+					adds(5,1);
+					//Ssearch();
+					cout<<"SEARCH MORE RECORDS?(Y/N): ";
+					cin>>ch;
+				}while(ch != 'n' && ch != 'N');
+				break;
+			case '6':
 				break;
 			default:
 				adds(s2, 1);
 				cout << "INVALID CHOICE. " << endl;
 		}
-		if(choice == '5')
+		if(choice == '6')
 			break;
 		//		cin.ignore();
 		adds(5, 1);
