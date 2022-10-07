@@ -29,12 +29,6 @@ As we all know, CSV(Comma Separated Values) files are easier to share as it can 
 ![View Records](screenshots/view_record.png "View Records")
 ![Delete Record](screenshots/delete_record.png "Delete Record")
 
-### Features to be implemented further and soon are:
-
-1.  Searching any student's record by ID.
-
->> Duplicate id's won't be allowed.
-
 ### To get and run this program, run these commands in your terminal:
 
 1.  git clone git@github.com:Bishnukt/Student_Data_Manager.git
