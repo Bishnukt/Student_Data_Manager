@@ -1,8 +1,12 @@
 #include "admin.h"
 
+/*
+ * add_data(): This function from Admin class is used to add student records in the data file. It creates a temp vector of strings to store inputted datas initially,
+ * then it writes the datas into the data file as well as inserts the data into the ordered map named file for use of data in runtime, if needed. 
+ */
 void Admin::add_data()
 {
-	ofstream out("sdm_dat.csv", ios_base::app);
+	ofstream out("sdm_dat.csv", ios_base::app);	//Opening data file in append mode.
 	if (out.is_open())
 	{
         Student student;
@@ -56,7 +60,7 @@ void Admin::add_data()
 		cin >> student.ph_no;
 		temp.push_back(student.ph_no);
 
-		out << student.id << "," << student.name << "," << student.course << "," << student.dep << "," << student.gender << "," << student.age << "," << student.ph_no << endl;
+		out << student.id << "," << student.name << "," << student.course << "," << student.dep << "," << student.gender << "," << student.age << "," << student.ph_no << endl; //Appending records into data file.
 		out.close();
 		file.insert({temp[0], temp});
 	}
@@ -67,6 +71,11 @@ void Admin::add_data()
 	}
 }
 
+/*
+ * Implementation of function delete_data(): This function from Admin class deletes any student's records by searching student_id,
+ * informs user if records of specified student id is not found. If student id found in records, it removes the records of the student from 
+ * the map variable named file, then calls the function write_dat() to write modified datas into file, whose implementation can be found further below.
+ */ 
 void Admin::delete_data()
 {
 	string str;
@@ -94,6 +103,11 @@ void Admin::delete_data()
 		<< endl;
 }
 
+/*
+ * Function update_data() from Admin class modifies and updates records by searching Id,
+ * informs if no such id found. If found, provides multiple options to update records. User can perform multiple modifications of records,
+ * as well as option to revert back to original state is also given so that wrong updation can be avoided.
+ */
 void Admin::update_data()
 {
 	string id,val;
