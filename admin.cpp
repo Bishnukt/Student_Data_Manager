@@ -1,7 +1,7 @@
 #include "admin.h"
 
 /*
- * add_data(): This function from Admin class is used to add student records in the data file. It creates a temp vector of strings to store inputted datas initially,
+ * The add data function from Admin class is used to add student records in the data file. It creates a temp vector of strings to store inputted datas initially,
  * then it writes the datas into the data file as well as inserts the data into the ordered map named file for use of data in runtime, if needed. 
  */
 void Admin::add_data()
