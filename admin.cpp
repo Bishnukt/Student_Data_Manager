@@ -1,7 +1,7 @@
 #include "admin.h"
 
 /*
- * The add data function from Admin class is used to add student records in the data file. It creates a temp vector of strings to store inputted datas initially,
+ * The add_data function from Admin class is used to add student records in the data file. It creates a temp vector of strings to store inputted datas initially,
  * then it writes the datas into the data file as well as inserts the data into the ordered map named file for use of data in runtime, if needed. 
  */
 void Admin::add_data()
@@ -238,6 +238,9 @@ void Admin::update_data()
 	cout<<"\""<<id<<"\" RECORDS UPDATED SUCCESSFULLY."<<endl;
 }
 
+/*
+ * load_dat() function is called from the constructor,it loads all data from the data file to a map data structure.
+ */
 void Admin::load_dat()
 {
 	in.open("sdm_dat.csv", ios::binary | ios::in);
@@ -267,6 +270,9 @@ void Admin::load_dat()
 	in.close();
 }
 
+/*
+ * write_dat() function writes all data from the map to the data_file. It is called from the Admin::update_data() & Admin::delete_data() functions.
+ */
 void Admin::write_dat()
 {
 	ofstream tmp;
