@@ -1,8 +1,8 @@
 #include "admin.h"
 
 /*
- * The add_data function from Admin class is used to add student records in the data file. It creates a temp vector of strings to store inputted datas initially,
- * then it writes the datas into the data file as well as inserts the data into the ordered map named file for use of data in runtime, if needed. 
+ *Admin::add_data() function adds student records in the data file. It creates a temp vector of strings to store input datas initially,
+ * then it writes the datas into the data file as well as inserts the data into the map data structure that is being used for accessing records in runtime, if needed. 
  */
 void Admin::add_data()
 {
@@ -72,9 +72,9 @@ void Admin::add_data()
 }
 
 /*
- * Implementation of function delete_data(): This function from Admin class deletes any student's records by searching student_id,
+ * Admin::delete_data() function deletes any student's records by searching student_id,
  * informs user if records of specified student id is not found. If student id found in records, it removes the records of the student from 
- * the map variable named file, then calls the function write_dat() to write modified datas into file, whose implementation can be found further below.
+ * the records, calls the function write_dat() to write modified datas into file, implementation can be found further below.
  */ 
 void Admin::delete_data()
 {
@@ -104,8 +104,8 @@ void Admin::delete_data()
 }
 
 /*
- * Function update_data() from Admin class modifies and updates records by searching Id,
- * informs if no such id found. If found, provides multiple options to update records. User can perform multiple modifications of records,
+ * Admin::update_data() function modifies and updates records by searching Id, informs if no such id found. 
+ * If found, provides multiple options to update records. User can perform multiple modifications of records,
  * as well as option to revert back to original state is also given so that wrong updation can be avoided.
  */
 void Admin::update_data()
