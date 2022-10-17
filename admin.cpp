@@ -294,6 +294,9 @@ void Admin::write_dat()
 	rename(".tmp_dat.csv", "sdm_dat.csv");
 }
 
+/*
+ * Admin::view_data function shows total data in a table format
+ */
 void Admin::view_data()
 {
 	if(file.empty())
@@ -303,7 +306,6 @@ void Admin::view_data()
 			<< endl;
 		return;
 	}
-	//	string str, s = "            ";
 	adds(0, 5);
 	cout << "ID";
 	adds(5);
@@ -326,6 +328,9 @@ void Admin::view_data()
 	cout << "\n"<< endl;
 }
 
+/*
+ * Admin::search() function searches a particular student's data by their ID.
+ */
 void Admin::search()
 {
 	string id;
@@ -347,6 +352,10 @@ void Admin::search()
 	cout << "\n"<< endl;
 }
 
+/*
+ * Admin::print() function receives vector of strings as parameter and prints the data. It is called from other functions like Admin::view_data() for printing records.
+ * It arranges each data records by caculating spaces required to place the fields in a professional manner.
+ */
 void Admin::print(vector<string> &line)
 {
 	for (int i = 0; i < line.size(); i++)
@@ -360,6 +369,10 @@ void Admin::print(vector<string> &line)
 		<< endl;
 }
 
+/*
+ * Admin::split() function receives string as parameter and returns a vector of strings by splitting the received string. Though there are functions for 
+ * splitting available in cpp, this function is implemented for learning and interest.
+ */
 vector<string> Admin::split(string str)
 {
 	string s;
@@ -378,6 +391,9 @@ vector<string> Admin::split(string str)
 	return temp;
 }
 
+/*
+ * Admin::menu() function shows the main menu
+ */
 void Admin::menu()
 {
 	char ch;
@@ -456,7 +472,9 @@ void Admin::menu()
 		cin >> ch;
 	} while (ch != 'n' && ch != 'N');
 }
-
+/*
+ * Admin::Admin(), the constructor of the Admin class calls the function Admin::load_dat() to load all records in a map data structure.
+ */
 Admin::Admin()
 {
 	load_dat();
@@ -471,6 +489,10 @@ Admin::Admin()
 //	cout<<"ADMIN LOGGING OUT. "<<endl;
 //}
 
+/*
+ * Admin::adds() function receives two integer parameters, no. of tabs and new lines. This is convenience as anyone can pass values as per their requirements for
+ * acceptable decent looking interface.
+ */
 void Admin::adds(int t, int n)
 {
 	t = t * 4;
